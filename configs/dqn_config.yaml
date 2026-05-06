@@ -1,0 +1,67 @@
+# =================================================
+# DQN Hyperparameters Configuration
+# =================================================
+
+# Training
+training:
+  total_episodes: 1000
+  max_steps_per_episode: 3600     # SUMO 模擬秒數（1 小時）
+  decision_interval: 5            # Agent 每 5 秒做一次決策
+  warm_up_steps: 1000             # 訓練前先填滿 replay buffer
+
+# DQN Algorithm
+dqn:
+  learning_rate: 0.001
+  discount_gamma: 0.95
+  batch_size: 32
+
+# Exploration (ε-greedy)
+exploration:
+  epsilon_start: 1.0
+  epsilon_end: 0.05
+  epsilon_decay: 0.995
+
+# Experience Replay
+replay_buffer:
+  capacity: 50000
+  min_size_to_train: 1000
+
+# Target Network
+target_network:
+  update_frequency: 500           # 每 500 步同步一次
+
+# Neural Network Architecture
+network:
+  input_dim: 5                    # state space dimension
+  hidden_layers: [128, 64]
+  output_dim: 2                   # action space (Keep, Change)
+  activation: "ReLU"
+  optimizer: "Adam"
+
+# Safety Constraints
+safety:
+  min_green_time: 10              # 最小綠燈時間（秒）
+  yellow_duration: 3              # 黃燈時長（秒）
+  all_red_duration: 1             # 全紅清空時間（秒）
+
+# Logging
+logging:
+  log_interval: 10                # 每 10 episodes 紀錄一次
+  save_interval: 50               # 每 50 episodes 存檔一次
+  log_dir: "logs/"
+  checkpoint_dir: "checkpoints/"
+
+# Evaluation
+evaluation:
+  eval_episodes: 20
+  metrics:
+    - avg_waiting_time
+    - avg_queue_length
+    - throughput
+    - reward_curve
+
+# SUMO Environment
+sumo:
+  config_file: "configs/sumo/simulation.sumocfg"
+  gui: false                      # 訓練時不開 GUI 加速
+  step_length: 1.0                # SUMO 模擬步長（秒）
