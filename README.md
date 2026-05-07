@@ -273,10 +273,9 @@ python src/evaluate.py --model checkpoints/best_model.pth
 
 ## 👥 作者
 
-- **學生姓名**：[請填寫]
-- **學號**：[請填寫]
-- **指導教授**：[請填寫]
-- **學校**：[請填寫]
+- **學生姓名**：[徐國皓 姜禮崴]
+- **授課教授**：[陳煥]
+- **學校**：[中興大學]
 - **學期**：2026 春季
 
 ---
@@ -289,7 +288,7 @@ python src/evaluate.py --model checkpoints/best_model.pth
 
 ## 🙏 致謝
 
-感謝指導教授對於論文寫作框架（A-Z Framework）與簡報結構的指導。
+感謝教授對於論文寫作框架（A-Z Framework）與簡報結構的指導。
 
 ---
 
